@@ -98,6 +98,16 @@
           drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
 
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
+        var canvas2=document.getElementById('blueCanvas'); 
+        var context2=canvas2.getContext("2d"); 
+        var imageData = context.getImageData (0,0, 600, 500); 
+        var data = imageData.data;  
+        for(var i=0, n=data.length; i < n; i+=4){ 
+            data [i] = 0; 
+            data [i+1] = 0;
+        }
+         
+        context2.putImageData(imageData, 0, 0);
       
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
